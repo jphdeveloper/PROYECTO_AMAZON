@@ -1,0 +1,306 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %}
+<div class="container mx-auto mt-10 mb-10 p-8 w-ful h-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto lg:grid-rows-8 gap-8">
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://artesaniasdecolombia.com.co/Documentos/Contenido/40545_feria-arte-artesania-diseno-artesanias-colombia-2022-g3.jpeg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Arte y artesanías</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="{{ url_for('arte') }}">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://leanmanufacturing10.com/wp-content/uploads/2021/08/herramientas-taller-mecanico.png" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Automotriz</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="{{ url_for('automotriz') }}">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://cdn.gadgetbytenepal.com/wp-content/uploads/2022/06/Asus-TUF-Gaming-F15-2022-Review.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Computadoras</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="{{ url_for('computadoras') }}">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://i0.wp.com/www.thegiftcompany.com.co/wp-content/uploads/2020/09/DSC_8238-Editar.jpg?fit=1000%2C1000&ssl=1" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Bebé</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://media.licdn.com/dms/image/v2/D5612AQEYlC0-pe-YEg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1735908154960?e=2147483647&v=beta&t=RyDOvqlNXAh4lvJJdC5x6ajUQWnCfizGMv5ZGPjn8-Q" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Belleza y cuidado personal</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://montech.pe/cdn/shop/articles/Diferencia_entre_Smart_TV_y_televisor_Led_blog_600x600_crop_center.png?v=1669911353" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Cine y TV</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://st3.depositphotos.com/1010613/14562/i/450/depositphotos_145623361-stock-photo-sport-equipments-on-floor.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Deportes y actividades al aire libre</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://imbgrup.com/wp-content/uploads/2023/01/electronica-1080x590-1.jpeg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Electrónicos</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://bob.io/wp-content/uploads/2022/06/equipajes-permitidos-por-aerolinea.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Equipaje</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://www.seetio.com/wp-content/uploads/2023/05/imprescindibles.jpg.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Herramientas y mejoramiento del hogar</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://revista-lagunas.s3.us-east-2.amazonaws.com/2022/10/549-el-corazon-del-hogar-estilos-y-tendencias-de-cocinas-200-big.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Hogar y cocina</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://contyquim.com/uploads/_medium/elementos-quimicos-a-productos-quimicos-1.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Industrial y científico</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://www.petmarkt.com.mx/cdn/shop/articles/pet-accessories-still-life-with-chew-bone-and-toys_1_1200x801.jpg?v=1639425565" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Insumos para mascotas</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://lingokids.com/wp-content/uploads/2020/04/shutterstock_329683400.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Juguetes y juegos</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://www.comunidadbaratz.com/wp-content/uploads/Sabes-cuales-son-los-libros-mas-vendidos-de-2017-a-traves-de-Internet-en-Espana.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Libros</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/2fc6614/2147483647/strip/true/crop/1200x676+0+12/resize/1000x563!/quality/90/?url=https%3A%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2F38%2F19%2Fb283b8674707bc143ce96d5a0daa%2Ftendencias-de-moda-para-nina-primavera-2024-boho-jeans-chaleco-gorra.jpeg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Moda de niñas</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://ropaymodainfantil.es/img/cms/fotos%20portada%202025/BABY%20BOY.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Moda de niños</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://montescojeans.com.ar/wp-content/uploads/que-ropa-usar-para-el-calor-hombre.webp" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Moda para Hombre</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://sopotey.com/blog/wp-content/uploads/2024/02/ropa-de-mujer-elegante-y-moderna.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Moda para Mujer</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://i.blogs.es/5151c0/musica/1366_2000.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Música MP3</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://i.blogs.es/bf5feb/vinilos/450_1000.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Música, CD y vinilos</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://assets.aboutamazon.com/c6/c1/f7f9558a487e82010c26b77821f9/about-amazon-hero-aa-may2024-primedaydeals-standard-hero-v8-600kb-es-2000x1125.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Ofertas</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://m.media-amazon.com/images/G/01/primevideo/seo/primevideo-seo-logo.png" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Prime Video</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://www.ciencuadras.com/blog/wp-content/uploads/2022/09/productos-limpieza-ecoamigables-portada.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Salud y productos para el hogar</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202022-09-15t154109-1663249308.338" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Software</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://images-na.ssl-images-amazon.com/images/G/01/kindle-apps/mobile/MobileCreative-EN.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Tienda Kindle</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://media.es.wired.com/photos/6776b2d78a0ea5cfeb3d5210/16:9/w_2560%2Cc_limit/1334436084" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5 items-center justify-center">
+                <h2 class="text-xl font-bold mb-2">Videojuegos</h2>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
+                    <a href="#">Ver más</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock main_content %}

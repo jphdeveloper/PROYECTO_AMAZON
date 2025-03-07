@@ -1,0 +1,60 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %}
+<div class="container w-full h-full p-20">
+    <section class="h-full flex items-center justify-center">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-center h-full">
+                <!-- Imagen -->
+                <div class="w-full md:w-1/2 lg:w-2/5 mb-8 md:mb-0">
+                    <img src="https://assets.aboutamazon.com/dims4/default/8370dc9/2147483647/strip/false/crop/2700x1800+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F69%2Fda%2F24aad61f48f9b60084540b19e532%2Funp-amazon-41374-ltn4-bcc-visit.040.JPG" class="w-full h-auto" alt="Empleado">
+                </div>
+
+                <!-- Formulario -->
+                <div class="w-full md:w-1/2 lg:w-2/5 md:ml-8">
+                    <form action="/actualizar_empleado/{{ empleados.id_empleado }}" method="post" class="bg-white p-8 rounded-lg shadow-lg">
+                        <!-- Divider con texto -->
+                        <div class="divider flex items-center my-4">
+                            <div class="flex-grow border-t border-gray-300"></div>
+                            <p class="text-center mx-3 mb-0 text-2xl font-semibold">Actualizar Empleado</p>
+                            <div class="flex-grow border-t border-gray-300"></div>
+                        </div>
+
+                        <!-- Campo: Nombres y Apellidos -->
+                        <div class="mb-6">
+                            <label for="nombre_empleado" class="block text-sm font-medium text-gray-700">Nombres y Apellidos</label>
+                            <input type="text" id="nombre_empleado" name="nombre_empleado" required value="{{ empleados.nombre_empleado }}"
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <!-- Campo: Salario -->
+                        <div class="mb-6">
+                            <label for="salario" class="block text-sm font-medium text-gray-700">Salario</label>
+                            <input type="number" id="salario" name="salario" min="0" step="0.01" required value="{{ empleados.salario }}"
+                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+
+                        <!-- Campo: Categoría -->
+                        <div class="mb-6">
+                            <label for="nombre_categoria" class="block text-sm font-medium text-gray-700">Seleccione Categoría</label>
+                            <select id="nombre_categoria" name="nombre_categoria" required
+                                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                {% for d in categorias %}
+                                <option value="{{ d.nombre_categoria }}">{{ d.nombre_categoria }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Botón de envío -->
+                        <div class="text-center mt-6">
+                            <button type="submit" class="px-6 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition duration-300">
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock main_content %}

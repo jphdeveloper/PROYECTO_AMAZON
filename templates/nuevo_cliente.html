@@ -1,0 +1,59 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %}
+<div class="container mx-auto p-5">
+    <section class="min-h-screen flex items-center justify-center">
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-center h-full">
+          <!-- Imagen -->
+          <div class="w-full md:w-1/2 flex justify-center">
+            <img src="https://www.microtech.es/hubfs/Fotos%20blog/retener_clientes.jpg" 
+                 class="w-full md:max-w-xl rounded-lg shadow-lg" 
+                 alt="image">
+          </div>          
+  
+          <!-- Formulario -->
+          <div class="w-full md:w-1/2 p-6">
+            <form action="/nuevo_cliente" method="post" class="bg-white p-6 rounded-lg shadow-lg">
+              <div class="text-center mb-6">
+                <p class="text-2xl font-bold text-gray-800">Añadir Cliente</p>
+              </div>
+  
+              <!-- N° de Identificación -->
+              <div class="mb-4">
+                <label for="id" class="block text-gray-700 font-semibold mb-2">N° de Identificación</label>
+                <input type="text" id="id" name="id" required 
+                  class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-green-300">
+              </div>
+  
+              <!-- Nombre Cliente -->
+              <div class="mb-4">
+                <label for="nombre_cliente" class="block text-gray-700 font-semibold mb-2">Nombres y Apellidos</label>
+                <input type="text" id="nombre_cliente" name="nombre_cliente" required 
+                  class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-green-300">
+              </div>
+  
+              <!-- Categoría -->
+              <div class="mb-4">
+                <label for="nombre_categoria" class="block text-gray-700 font-semibold mb-2">Seleccione Categoría</label>
+                <select id="nombre_categoria" name="nombre_categoria" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-green-300">
+                  {% for d in categorias %}
+                  <option value="{{ d.nombre_categoria }}">{{ d.nombre_categoria }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+  
+              <!-- Botón -->
+              <div class="text-center mt-6">
+                <button type="submit" class="w-full px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-white transition duration-300">
+                  Añadir Cliente
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+{% endblock main_content %}

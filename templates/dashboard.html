@@ -1,0 +1,77 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %} 
+<div class="container mx-auto mt-10 mb-10 p-4 w-ful h-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mr-10 ml-10">
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://www.datafeedwatch.es/hubfs/DFW/categorias%20e%20imagenes%20amazon-1.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Categorias</h2>
+                
+                <p class="text-gray-600">Info de los Productos</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="{{ url_for('categorias') }}">Gestión de Categorias</a>
+                </button>
+            </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/TU3UG4PM6BAL3DZZAXPP6QLRRI.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Empleados</h2>
+                <p class="text-gray-600">Info de empleados</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="{{ url_for('empleado') }}">Gestión de Empleados</a>
+                </button>
+            </div>
+        </div><div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://blog.comparasoftware.com/wp-content/uploads/2021/02/tipos-de-clientes-de-ecommerce-1.png" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Clientes</h2>
+                <p class="text-gray-600">Info de los clientes</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="{{ url_for('cliente') }}">Gestión de Clientes</a>
+                </button>
+            </div>
+        </div><div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/07/amazon-aplicacion-3075164.jpg?tf=3840x" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Noticias</h2>
+                <p class="text-gray-600">Ultimas actualizaciones</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="#">Gestión de Noticias</a>
+                </button>
+            </div>
+        </div><div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://stubgroup.com/wp-content/uploads/2021/02/wiXtq4NPpGbNf6PEHTT4hg.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Oficinas</h2>
+                <p class="text-gray-600">Donde nos encontramos?</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="{{ url_for('oficinas') }}">Click aquí</a>
+                </button>
+            </div>
+        </div><div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+            <div class="w-full flex justify-center">
+                <img src="https://gagadget.com/media/post_big/14745.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+            </div>
+            <div class="flex flex-col gap-2 mb-5">
+                <h2 class="text-xl font-bold mb-2">Tiendas Amazon</h2>
+                <p class="text-gray-600">Info de las tiendas</p>
+                <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg">
+                    <a href="{{ url_for('sucursal') }}">Sucursales</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content%}

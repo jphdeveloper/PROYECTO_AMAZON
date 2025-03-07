@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form class="form-recovery" action="{{ url_for('recovery_post') }}" method="post">
+        <h2 style="font-weight: 200; padding-bottom: 15px;">Recuperar Cuenta</h2>
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" required>
+        
+        <button class="button" type="submit">Recuperar cuenta</button>
+        <div>
+            <p style="font-size: 13px; text-align: justify;">
+                Te enviaremos un correo con instrucciones para recuperar tu contraseña.
+            </p>
+        </div>
+        <p style="text-align: center;">
+            <p style="font-weight: bold; font-size: 15px; padding-top: 15px;">
+                ¿Recuerdas tu contraseña?
+            </p>
+            <a class="a-1" style="font-size: 15px;;" href="{{ url_for('login') }}">Inicia sesión aquí</a>
+        </p>
+    </form>
+{% endblock %}

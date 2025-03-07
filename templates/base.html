@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Iniciar sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
+</head>
+<body>
+    <header>
+        <a style="cursor: pointer;" href="{{ url_for('index') }}">
+            <img alt="Logo" src="{{url_for('static',filename='img/logo.jpg')}}" style="max-height: 64px;">
+        </a>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == 'success' %}
+                            <div class="flash-message flash-success" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
+                                {{ message }}
+                            </div>
+                        {% elif category == 'error' %}
+                            <div class="flash-message flash-error" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
+                                {{ message }}
+                            </div>
+                        {% else %}
+                            <div class="flash-message flash-info" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer style="font-size: 12px;">
+        <div class="footer-div">
+            <a href="" class="a-3">Condiciones de uso</a>
+            <a href="" class="a-3">Aviso de privacidad</a>
+            <a href="" class="a-3">Ayuda</a>
+        </div>
+        <p>© 1996 - 2025 Amazon.com, Inc. o sus afiliados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</body>
+</html>

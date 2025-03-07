@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="{{ url_for('login_post') }}" method="post">
+        <h1>Iniciar sesión</h1>
+        <label for="correo">E-mail</label>
+        <input type="email" id="correo" name="correo" required>
+        <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña" required>
+
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" name="rol" id="ClientesRadio" value="cliente" required>
+                <span>Cliente</span>
+            </label>
+            <label class="radio-option">
+                <input type="radio" name="rol" id="adminRadio" value="admin" required>
+                <span>Administrador</span>
+            </label>
+        </div> 
+
+        <button class="button" type="submit">Continuar</button>
+        <div>
+            <p style="font-size: 13px; text-align: justify;">
+                Al continuar, aceptas las <a class="a-2" href="">Condiciones de uso</a> y el <a class="a-2" href="">Aviso de privacidad</a> de Amazon.
+            </p>
+        </div>
+        <hr style="border: 0; height: 2px; background-color: #EAECEC;">
+        <p style="text-align: center;">
+            <p style="font-weight: bold; font-size: 15px;">
+                ¿Olvidaste tu contraseña?
+            </p>
+            <a class="a-1" style="font-size: 15px;" href="{{ url_for('recovery') }}">Cambiar contraseña</a>
+        </p>
+    </form>
+
+    <p style="text-align: center; font-size: 13px; color: #575757;">
+        ¿Eres nuevo en Amazon?
+    </p>
+    <a class="button-account" href="{{ url_for('register') }}">
+        <p style="text-align: center; margin: 10px;">
+            Crea tu cuenta de Amazon
+        </p>
+    </a>
+
+    <style>
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #2563eb; /* Color azul */
+            cursor: pointer;
+        }
+
+        .radio-option span {
+            color: #374151; /* Color gris oscuro */
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}

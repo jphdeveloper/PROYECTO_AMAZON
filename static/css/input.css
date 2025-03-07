@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .header-custom {
+        @apply bg-[#131921] flex items-center justify-center px-10 py-3 text-white p-4 gap-4;
+    }
+
+    .header-dashboard {
+        @apply bg-[#131921] flex items-center justify-between px-10 py-1 text-white p-2;
+    }
+
+    .ubication {
+        @apply flex flex-col items-center w-auto -mb-2 pr-4;
+    }
+
+    .country {
+        @apply flex flex-row items-start;
+    }
+
+    .container-1 {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .container-2 {
+        @apply flex flex-row items-center;
+    }
+
+    .register {
+        @apply flex flex-col items-center w-auto -mb-5;
+    }
+
+    .button-login {
+        @apply w-full px-4 py-2 bg-yellow-400 border border-yellow-400 rounded-lg 
+            text-sm text-black font-medium cursor-pointer mt-2 transition 
+            duration-300 hover:bg-yellow-500;
+    }
+
+    .cards-overlay {
+        @apply relative left-0  w-full z-[10]
+            transform -translate-y-[45%]
+            mb-[-400px] bg-gradient-to-t from-[#e3e6e6] via-[#e3e6e6] to-transparent;
+    }
+    .card {
+        @apply w-[360px] h-full bg-white rounded-lg border-none transition-transform duration-200;
+    }
+
+    .card:hover {
+        @apply scale-105;
+    }
+
+    .card-carousel {
+        @apply w-[97%] h-full bg-white/90 rounded-lg border-none transition-transform duration-200;
+    }
+
+    .card-body {
+        @apply h-full
+    }
+    
+    .card1-content {
+        @apply grid gap-2 mb-[-20px] grid-cols-2 grid-rows-2;
+    }
+
+    .card3-content {
+        @apply grid gap-2 mb-[-20px] grid-cols-2 grid-rows-2;
+        grid-template-areas:
+            "product-1 product-2"
+            "product-3 product-4";
+    }
+}
+
+body {
+    @apply font-sans m-0 p-0 bg-[#E3E6E6] flex flex-col w-full h-full;
+}
+
+main {
+    background-color: #E3E6E6;
+}
+
+main.with-overlay {
+    position: relative;
+}
+
+main.with-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 100px;
+    height: 80px;
+    display: inline-block;
+}
+.carousel-control-next-icon {
+    transform: rotate(180deg);
+}
+
+.ubication p {
+    margin-bottom: -5px;
+}
+
+.bi-cart {
+    margin-bottom: -15px;
+}
+
+.card5-content img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.5s ease-out forwards;
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .animate-fade {
+    animation: fade 1.5s infinite;
+  }
+
+@media (max-width: 768px) {
+    .header-custom {
+        @apply flex-row items-center justify-between p-5;
+    }
+    .cards-overlay {
+        @apply relative left-0  w-full z-[10]
+            transform -translate-y-[5px]
+            mb-[10px] bg-gradient-to-t from-[#e3e6e6] via-[#e3e6e6] to-transparent;
+    }
+    .card {
+        @apply w-full h-full bg-white/90 rounded-lg border-none transition-transform duration-200;
+    }
+
+    .carousel-index {
+        @apply hidden
+    }
+
+    .carousel-index-2 {
+        @apply hidden
+    }
+
+    .div-header-1 {
+        @apply hidden
+    }
+
+    .div-header-2 {
+        @apply hidden
+    }
+}
+

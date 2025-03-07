@@ -1,0 +1,42 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %}
+<div class="container mx-auto px-10 h-full w-full mt-20 py-20">
+    <div class="text-center bg-gray-100 p-6 rounded-lg shadow-md">
+        <h1 class="text-4xl font-bold">Sucursales</h1>
+        <p class="text-lg text-gray-600">¡Bienvenido al Panel de Sucursales!</p>
+        <hr class="my-4 border-gray-300">
+    </div>
+
+    <div class="overflow-x-auto mt-6 rounded-lg">
+        <table class="w-full border-collapse bg-white shadow-md ">
+            <thead class="bg-blue-500 text-white">
+                <tr>
+                    <th class="px-4 py-2">#</th>
+                    <th class="px-4 py-2">Sucursal</th>
+                    <th class="px-4 py-2">N° de Sucursal</th>
+                    <th class="px-4 py-2">Capacidad</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for stu in sucursal %}
+                <tr class="hover:bg-gray-100">
+                    <td class="px-4 py-2 text-center">{{ loop.index }}</td>
+                    <td class="px-4 py-2 text-center">{{ stu.nombre_sucursal }}</td>
+                    <td class="px-4 py-2 text-center">{{ stu.numero_sala }}</td>
+                    <td class="px-4 py-2 text-center">{{ stu.capacidad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="bg-gray-100">
+                    <td colspan="4" class="px-4 py-2 text-center font-semibold">
+                        {{ sucursal|length }} Sucursales.
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+{% endblock main_content %}

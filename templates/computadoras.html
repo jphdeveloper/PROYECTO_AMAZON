@@ -1,0 +1,123 @@
+{% extends "dept_base.html" %}
+
+{% block deptname%}Computadoras{% endblock deptname%}
+{% block img%} 
+<img src="https://sm.pcmag.com/pcmag_me/review/a/asus-tuf-g/asus-tuf-gaming-a14_bkds.jpg" 
+class="max-w-[400px] max-h-[300px] rounded-full shadow-md mx-auto" 
+alt="...">
+{% endblock img%}
+
+{% block content %}
+<div class="container mx-auto mb-5 mt-5 px-4">
+    <!-- Productos -->
+    <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold text-gray-800">Productos</h1>
+    </div>
+    <div class="text-center mb-4">
+        <a href="/nuevo_producto" class="flex justify-center">
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition flex items-center gap-2 sm:w-auto w-full">
+                <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-5 h-5 animate-fade"
+          >
+            <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z" />
+          </svg>
+          Añadir Producto
+            </button>
+        </a>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-md">
+        <table class="w-full border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">#</th>
+                    <th class="border border-gray-300 px-4 py-2">Referencia</th>
+                    <th class="border border-gray-300 px-4 py-2">Descripción</th>
+                    <th class="border border-gray-300 px-4 py-2">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in producto %}
+                <tr class="border border-gray-300 odd:bg-gray-50 hover:bg-gray-100 transition">
+                    <th class="px-4 py-2">{{ loop.index }}</th>
+                    <td class="px-4 py-2">{{ c[0] }}</td>
+                    <td class="px-4 py-2">{{ c[1] }}</td>
+                    <td class="px-4 py-2">{{ c[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-center py-2 bg-gray-100 font-semibold">{{ producto|length }} Productos</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <hr class="my-6 border-gray-300">
+
+    <!-- Empleados -->
+    <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold text-gray-800">Empleados</h1>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-md">
+        <table class="w-full border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">#</th>
+                    <th class="border border-gray-300 px-4 py-2">N° de Identificación</th>
+                    <th class="border border-gray-300 px-4 py-2">Nombres y Apellidos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in empleado %}
+                <tr class="border border-gray-300 odd:bg-gray-50 hover:bg-gray-100 transition">
+                    <th class="px-4 py-2">{{ loop.index }}</th>
+                    <td class="px-4 py-2">{{ i[0] }}</td>
+                    <td class="px-4 py-2">{{ i[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-center py-2 bg-gray-100 font-semibold">{{ empleado|length }} Empleados</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <hr class="my-6 border-gray-300">
+
+    <!-- Clientes -->
+    <div class="text-center mb-6">
+        <h1 class="text-4xl font-bold text-gray-800">Clientes</h1>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-md">
+        <table class="w-full border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">#</th>
+                    <th class="border border-gray-300 px-4 py-2">N° de Identificación</th>
+                    <th class="border border-gray-300 px-4 py-2">Nombres y Apellidos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in cliente %}
+                <tr class="border border-gray-300 odd:bg-gray-50 hover:bg-gray-100 transition">
+                    <th class="px-4 py-2">{{ loop.index }}</th>
+                    <td class="px-4 py-2">{{ i[0] }}</td>
+                    <td class="px-4 py-2">{{ i[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-center py-2 bg-gray-100 font-semibold">{{ cliente|length }} Clientes</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock content %} 
