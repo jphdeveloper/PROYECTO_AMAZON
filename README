@@ -1,0 +1,36 @@
+Pasos para crear un proyecto (App web) en Python Flask
+Usando un entorno virtual e instalacion de sus dependencias (paquetes)
+
+Paso 1 - Creamos el entorno virtual
+
+python -m venv env
+
+Paso 2 - Activamos el entorno virtual
+
+. env/Scripts/activate
+
+Paso 3 - Dentro del entorno virtual, instalamos todos nuestros paquetes o dependencias
+
+pip install Flask
+pip install PyMySQL
+pip install mysql-connector-python
+
+Instalacion de Tailwind css
+
+Consola:
+npm install tailwindcss @tailwindcss/cli
+
+Archivo input.css:
+@import "tailwindcss";
+
+Consola:
+npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch
+
+Crear archivo de requerimientos:
+pip freeze > requirements.txt
+
+Instalar requerimientos:
+pip install -r requirements.txt
+
+Antes de hacer cambios:
+git pull origin main
