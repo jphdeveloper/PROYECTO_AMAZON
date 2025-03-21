@@ -1,134 +1,500 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amazon.com</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
     <div class="header-custom">
-        <div class="flex items-center space-x-4 pb-2 div-header-1">
-            <a href="{{ url_for('index') }}" class="cursor-pointer mt-4 ">
-                <img alt="Logo" src="{{ url_for('static', filename='img/logo.png') }}" class="h-12">
-            </a>
-            <a href="#" class="cursor-pointer no-underline flex items-center space-x-1">
-                <div class="ubication">
-                    <p class="text-gray-300 text-xs font-medium leading-none">Enviar a</p>
-                    <div class="flex items-center space-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="white" class="bi bi-geo-alt">
-                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                        </svg>
-                        <p class="text-sm font-bold">Colombia</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <a href="{{ url_for('index') }}" class="cursor-pointer mt-1 block md:hidden">
-            <img alt="Logo" src="{{ url_for('static', filename='img/logo.png') }}" class="h-10 w-full">
+      <div class="flex items-center space-x-4 pb-2 div-header-1">
+        <a href="{{ url_for('index') }}" class="cursor-pointer mt-6">
+            <img
+              alt="Logo"
+              src="{{ url_for('static', filename='img/logo.svg') }}"
+              class="h-12"
+              style="filter: brightness(0) invert(1);"
+            />
         </a>
-        <div class="flex items-center w-full max-w-2xl">
-            <div class="relative inline-block text-left">
-                <button id="dropdownBtn" class="h-10 bg-gray-200 text-gray-700 px-3 text-xs font-medium rounded-l-md flex-shrink-0">
-                    Todos
-                </button>
-                <ul id="dropdownMn" class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 shadow-lg hidden z-50 max-h-96 overflow-y-auto">
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Todos los departamentos</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Arte y artesanías</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Automotriz</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Bebé</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Belleza y cuidado personal</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Cine y TV</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Computadoras</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Deportes y actividades al aire libre</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Electrónicos</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Equipaje</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Herramientas y mejoramiento del hogar</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Hogar y cocina</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Industrial y científico</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Insumos para mascotas</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Juguetes y juegos</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Libros</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Moda de niñas</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Moda de niños</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Moda para Hombre</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Moda para Mujer</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Música MP3</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Música, CD y vinilos</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Ofertas</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Prime Video</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Salud y productos para el hogar</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Software</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Tienda Kindle</a></li>
-                    <li><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">Videojuegos</a></li>
-                </ul>
+        <a
+          href="#"
+          class="cursor-pointer no-underline flex items-center space-x-1"
+        >
+          <div class="ubication">
+            <p class="text-gray-300 text-xs font-medium leading-none">
+              Enviar a
+            </p>
+            <div class="flex items-center space-x-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="17"
+                fill="white"
+                class="bi bi-geo-alt"
+              >
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"
+                />
+                <path
+                  d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                />
+              </svg>
+              <p class="text-sm font-bold">Colombia</p>
             </div>
-            <input type="text" class="flex-1 h-10 px-2 border-none outline-none focus:ring-2 focus:ring-yellow-400 text-black" placeholder="Buscar en Amazon">
-            <button class="h-10 bg-yellow-400 px-3 rounded-r-md flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-search">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-            </button>
-        </div>        
-        <div class="relative div-header-2">
-            <button id="dropdownButton" class="px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-md focus:outline-none mb-4">
-                <div class="register">
-                    <p class="text-xs font-medium">Hola, Identifícate</p>
-                    <p class="text-sm font-bold">Iniciar sesión</p>
-                </div>
-            </button>
-            <ul id="dropdownMenu" class="absolute right-0 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-lg hidden z-50">
-                <li class="flex flex-col items-center p-4">
-                    <a class="dropdown-item w-full text-center" href="{{ url_for('login') }}">
-                        <button class="w-full bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded">
-                            Continuar
-                        </button>
-                    </a>
-                    <p class="text-xs mt-2 text-gray-700 text-center">
-                        ¿Eres un cliente nuevo? <a class="text-blue-600 hover:underline" href="{{ url_for('register') }}">Empieza aquí</a>
-                    </p>
-                </li>
-            </ul>
-            <button class="px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-md focus:outline-none mb-4">
-                <div class="register">
-                    <p class="text-xs font-medium">Devoluciones</p>
-                    <p class="text-sm font-bold">y Pedidos</p>
-                </div>
-            </button>          
+          </div>
+        </a>
+      </div>
+      <a
+        href="{{ url_for('index') }}"
+        class="cursor-pointer mt-1 block md:hidden"
+      >
+        <img
+          alt="Logo"
+          src="{{ url_for('static', filename='img/logo.svg') }}"
+          class="h-12 md:h-10 object-contain"
+          style="filter: brightness(0) invert(1);"
+        />
+      </a>
+      <!-- Botón de modo oscuro -->
+      <!-- Botón de modo oscuro solo para la página principal -->
+      <!-- Botón de modo oscuro -->
+
+      <div class="flex items-center w-full max-w-2xl">
+        <div class="relative inline-block text-left">
+          <button
+            id="dropdownBtn"
+            class="h-10 bg-gray-200 text-gray-700 px-3 text-xs font-medium rounded-l-md flex-shrink-0"
+          >
+            Todos
+          </button>
+          <ul
+            id="dropdownMn"
+            class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 shadow-lg hidden z-50 max-h-96 overflow-y-auto"
+          >
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Todos los departamentos</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Arte y artesanías</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Automotriz</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Bebé</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Belleza y cuidado personal</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Cine y TV</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Computadoras</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Deportes y actividades al aire libre</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Electrónicos</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Equipaje</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Herramientas y mejoramiento del hogar</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Hogar y cocina</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Industrial y científico</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Insumos para mascotas</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Juguetes y juegos</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Libros</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Moda de niñas</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Moda de niños</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Moda para Hombre</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Moda para Mujer</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Música MP3</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Música, CD y vinilos</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Ofertas</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Prime Video</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Salud y productos para el hogar</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Software</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Tienda Kindle</a
+              >
+            </li>
+            <li>
+              <a
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                >Videojuegos</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="relative block md:hidden">
-            <button id="menuToggle" class="text-white focus:outline-none">
-                <svg class="w-10 h-10 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2z" clip-rule="evenodd"/>
-                </svg>
-            </button>            
-            <div id="menuDropdown" class="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-lg hidden z-50">
-                <ul class="flex flex-col space-y-2 py-2">
-                    <li><a href="{{ url_for('index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Inicio</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Categorías</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Ofertas</a></li>
-                    <li><a href="{{ url_for('login') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Iniciar Sesión</a></li>
-                    <li><a href="{{ url_for('register') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Registrarse</a></li>
-                </ul>
-            </div>
+        <input
+          type="text"
+          class="flex-1 h-10 px-2 border-none outline-none focus:ring-2 focus:ring-yellow-400 text-black"
+          placeholder="Buscar en Amazon"
+        />
+        <button class="h-10 bg-yellow-400 px-3 rounded-r-md flex-shrink-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="black"
+            class="bi bi-search"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="relative div-header-2">
+        <button
+          id="dropdownButton"
+          class="px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-md focus:outline-none mb-4"
+        >
+          <div class="register">
+            <p class="text-xs font-medium">Hola, Identifícate</p>
+            <p class="text-sm font-bold">Iniciar sesión</p>
+          </div>
+        </button>
+        <ul
+          id="dropdownMenu"
+          class="absolute right-0 mt-2 w-64 bg-white border border-gray-200 shadow-lg rounded-lg hidden z-50"
+        >
+          <li class="flex flex-col items-center p-4">
+            <a
+              class="dropdown-item w-full text-center"
+              href="{{ url_for('login') }}"
+            >
+              <button
+                class="w-full bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded"
+              >
+                Continuar
+              </button>
+            </a>
+            <p class="text-xs mt-2 text-gray-700 text-center">
+              ¿Eres un cliente nuevo?
+              <a
+                class="text-blue-600 hover:underline"
+                href="{{ url_for('register') }}"
+                >Empieza aquí</a
+              >
+            </p>
+          </li>
+        </ul>
+        <button
+          class="px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-md focus:outline-none mb-4"
+        >
+          <div class="register">
+            <p class="text-xs font-medium">Devoluciones</p>
+            <p class="text-sm font-bold">y Pedidos</p>
+          </div>
+        </button>
+        <button
+          id="dark-mode-toggle-home"
+          aria-label="Cambiar modo"
+          class="fixed bottom-0 right-0 mr-10 mb-10 p-2 z-50 w-14 h-14 flex items-center justify-center rounded-full shadow-lg transition-all duration-300 bg-white hover:bg-gray-100 border-2 border-gray-300"
+        >
+          <svg
+            id="sun-icon-home"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden transition-all duration-300"
+          >
+            <path
+              d="M12 4V2M12 22V20M4.93 4.93L3.51 3.51M20.49 20.49L19.07 19.07M2 12H4M20 12H22M4.93 19.07L3.51 20.49M20.49 3.51L19.07 4.93M12 18C8.686 18 6 15.314 6 12C6 8.686 8.686 6 12 6C15.314 6 18 8.686 18 12C18 15.314 15.314 18 12 18Z"
+            />
+          </svg>
+          <svg
+            id="moon-icon-home"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="block transition-all duration-300"
+          >
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+      </div>
+      <div class="relative block md:hidden">
+        <button id="menuToggle" class="text-white focus:outline-none">
+          <svg class="w-10 h-10 mt-1" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          id="menuDropdown"
+          class="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-lg hidden z-50"
+        >
+          <ul class="flex flex-col space-y-2 py-2">
+            <li>
+              <a
+                href="{{ url_for('index') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Categorías</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Ofertas</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('login') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Iniciar Sesión</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('register') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Registrarse</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+    <header class="header-custom-2 hidden lg:flex">
+      <div class="ml-5">
+        <button
+          class="text-white hover:text-gray-300 focus:outline-none flex items-center gap-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 text-white hover:text-gray-300"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M3 6h18M3 12h18M3 18h18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="text-base font-bold">Todo</span>
+        </button>
+      </div>
+      <div>
+        <ul class="flex flex-col md:flex-row items-center gap-5">
+          <li>
+            <a href="#" class="text-white hover:text-gray-300"
+              >Ofertas del Día</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-white hover:text-gray-300"
+              >Servicio al Cliente</a
+            >
+          </li>
+          <li><a href="#" class="text-white hover:text-gray-300">Listas</a></li>
+          <li>
+            <a href="#" class="text-white hover:text-gray-300"
+              >Tarjetas de Regalo</a
+            >
+          </li>
+          <li><a href="#" class="text-white hover:text-gray-300">Vender</a></li>
+        </ul>
+      </div>
+    </header>
+
     <main id="mainContent">
-        <div x-data="{
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %} {% if category ==
+      'success' %}
+      <div
+        class="flash-message flash-success"
+        x-data="{ show: true }"
+        x-init="setTimeout(() => { show = false }, 3000)"
+        x-show="show"
+        x-transition:leave="slide-out-right"
+      >
+        {{ message }}
+      </div>
+      {% elif category == 'error' %}
+      <div
+        class="flash-message flash-error"
+        x-data="{ show: true }"
+        x-init="setTimeout(() => { show = false }, 3000)"
+        x-show="show"
+        x-transition:leave="slide-out-right"
+      >
+        {{ message }}
+      </div>
+      {% else %}
+      <div
+        class="flash-message flash-info"
+        x-data="{ show: true }"
+        x-init="setTimeout(() => { show = false }, 3000)"
+        x-show="show"
+        x-transition:leave="slide-out-right"
+      >
+        {{ message }}
+      </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %}
+      <div
+        x-data="{
             current: 0,
             images: [
                 'https://m.media-amazon.com/images/I/71J8qjj+EiL._SX3000_.jpg',
                 'https://m.media-amazon.com/images/I/61FmfWubpsL._SX3000_.jpg',
                 'https://m.media-amazon.com/images/I/61Wwp0B1X9L._SX3000_.jpg',
-                'https://m.media-amazon.com/images/I/71n3URQek3L._SX3000_.jpg'
+                'https://m.media-amazon.com/images/I/71n3URQek3L._SX3000_.jpg',
+                'https://m.media-amazon.com/images/I/61nqLqnFKnL._SX3000_.jpg'
             ],
             autoSlide() {
                 this.interval = setInterval(() => {
                     this.next();
-                }, 4000);
+                }, 2500);
             },
             next() {
                 this.current = (this.current + 1) % this.images.length;
@@ -139,304 +505,547 @@
             stopAutoSlide() {
                 clearInterval(this.interval);
             }
-        }" 
-        x-init="autoSlide()" 
-        class="relative w-full overflow-hidden carousel-index">
-            <div class="flex transition-transform duration-700 ease-in-out" 
-                :style="'transform: translateX(-' + current * 100 + '%)'" 
-                @mouseenter="stopAutoSlide()" 
-                @mouseleave="autoSlide()">
-                
-                <template x-for="image in images" :key="image">
-                    <div class="min-w-full relative">
-                        <img :src="image" class="w-full h-auto">
-                        <!-- Gradiente inferior -->
-                        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
-                    </div>
-                </template>
+        }"
+        x-init="autoSlide()"
+        class="relative w-full overflow-hidden carousel-index"
+      >
+        <div
+          class="flex transition-transform duration-700 ease-in-out"
+          :style="'transform: translateX(-' + current * 100 + '%)'"
+          @mouseenter="stopAutoSlide()"
+          @mouseleave="autoSlide()"
+        >
+          <template x-for="image in images" :key="image">
+            <div class="min-w-full relative">
+              <img :src="image" class="w-full h-auto" />
+              <!-- Gradiente inferior -->
+              <div
+                class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"
+              ></div>
             </div>
-        
-            <!-- Botón Anterior -->
-            <button @click="prev(); stopAutoSlide(); autoSlide()"
-                class="absolute left-4 top-20 transform -translate-y-1/2 bg-opacity-50 text-white rounded-full hover:bg-opacity-75 flex items-center justify-center btn-left">
-                <span class="carousel-control-next-icon">&#10095;</span>
-            </button>
+          </template>
+        </div>
 
-            <!-- Botón Siguiente -->
-            <button @click="next(); stopAutoSlide(); autoSlide()"
-                class="absolute right-4 top-20 transform -translate-y-1/2 bg-opacity-50 text-white rounded-full hover:bg-opacity-75 flex items-center justify-center btn-right">
-                
-                <span class="carousel-control-next-icon">&#10094;</span>
-            </button>
-        </div>
-        <div class="cards-overlay">
-            <div class="w-full p-5">
-                <div class="flex flex-wrap">
-                    <div class="w-full md:w-1/4 pb-5">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4">Accessorios para juegos</h5>
-                                <ul class="card1-content">
-                                    <li class="flex flex-col items-center product-1">
-                                        <img src="https://m.media-amazon.com/images/I/71nUYWaf0RL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="w-[95px] h-[100px] cursor-pointer">
-                                        <p class="text-[13px] font-medium cursor-pointer">Auriculares</p>
-                                    </li>
-                                    <li class="flex flex-col items-center product-2">
-                                        <img src="https://m.media-amazon.com/images/I/71QDJHG1PqL._AC_UY327_FMwebp_QL65_.jpg" class="w-[130px] h-[100px] cursor-pointer">
-                                        <p class="text-[13px] font-medium cursor-pointer">Teclados</p>
-                                    </li>
-                                    <li class="flex flex-col items-center product-3">
-                                        <img src="https://m.media-amazon.com/images/I/61AcT0ZuO3L._AC_UY327_FMwebp_QL65_.jpg" class="w-[90px] h-[120px] cursor-pointer">
-                                        <p class="text-[13px] font-medium cursor-pointer">Balance de computadora</p>
-                                    </li>
-                                    <li class="flex flex-col items-center product-4">
-                                        <img src="https://m.media-amazon.com/images/I/61YuuSZAKfL.__AC_SX300_SY300_QL70_FMwebp_.jpg" class="w-[90px] h-[120px] cursor-pointer">
-                                        <p class="text-[13px] font-medium cursor-pointer">Sillas</p>
-                                    </li>
-                                </ul>
-                                <ul class="mt-5 mb-5">
-                                    <li><a href="#" class="no-underline text-blue-500 hover:no-underline">Ver más</a></li>
-                                </ul>                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-5">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4 text-center">Envío GRATUITO a Colombia</h5>
-                                <ul class="w-full ">
-                                    <li>
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/1460058_2528408_us_gw_pc_single_category_card_1x_379x304_us-en-379x304._SY304_CB609924804_.jpg"
-                                            class="w-full h-auto cursor-pointer rounded-lg">
-                                    </li>
-                                </ul>
-                                <ul class="mt-5 mb-5">
-                                    <li><a href="#" class="no-underline text-blue-500 hover:no-underline">Más información</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-5">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4 text-center">Compra los esenciales para tu hogar</h5>
-                                <ul class="card3-content">
-                                    <li class="product-1 flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/CleaningTool_1x._SY116_CB563137408_.jpg"
-                                            class="w-[155px] h-[102px] cursor-pointer">
-                                        <p class="text-[14px] font-medium cursor-pointer">Para limpieza</p>
-                                    </li>
-                                    <li class="product-2 flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/HomeStorage_1x._SY116_CB563137408_.jpg"
-                                            class="w-[155px] h-[102px] cursor-pointer">
-                                        <p class="text-[14px] font-medium cursor-pointer">Almacenamiento para el hogar</p>
-                                    </li>
-                                    <li class="product-3 flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/HomeDecor_1x._SY116_CB563137408_.jpg"
-                                            class="w-[155px] h-[102px] cursor-pointer">
-                                        <p class="text-[14px] font-medium cursor-pointer">Decoración del hogar</p>
-                                    </li>
-                                    <li class="product-4 flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/Bedding_1x._SY116_CB563137408_.jpg"
-                                            class="w-[155px] h-[102px] cursor-pointer">
-                                        <p class="text-[14px] font-medium cursor-pointer">Ropa de cama</p>
-                                    </li>
-                                </ul>
-                                <ul class="mt-5 mb-5">
-                                    <li><a href="#" class="no-underline text-blue-500 hover:no-underline">Descubre más en hogar</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-5">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4 text-center">Mejora tu juego</h5>
-                                <ul>
-                                    <li>
-                                        <img src="https://img.poweredcache.net/www.teknoblog.com/wp-content/uploads/2020/08/microsoft-xbox-series-x-cikis-tarihi-icin-kasim-ayini-isaret-etti.jpeg?rs=fit&w=1310&h=873&ssl=1"
-                                            class="w-full h-[245px] cursor-pointer rounded-lg">
-                                    </li>
-                                </ul>
-                                <ul class="mt-5 mb-5">
-                                    <li><a href="#" class="no-underline text-blue-500 hover:no-underline">Compra videojuegos</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-2">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4">Año nuevo, nuevos suministros</h5>
-                                <ul class="w-full">
-                                    <li>
-                                        <img src="https://panafargo.com/wp-content/uploads/2022/05/articulos-de-papeleria-mas-vendidos2-1024x681.jpg" class="w-full h-auto cursor-pointer rounded-lg">
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li class="mt-5 mb-5">
-                                        <a href="#" class="text-blue-500 no-underline hover:no-underline">Compra productos de oficina y papelería</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-2">
-                        <div class="card h-100">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4">Principales categorías en Electrodomésticos de cocina</h5>
-                                <ul class="card5-content">
-                                    <li class="product-1 flex flex-col items-center gap-3">
-                                        <img src="https://m.media-amazon.com/images/I/313wAT6Iy2L._SY160_.jpg" class="w-full h-[130px] cursor-pointer">
-                                        <p class="text-[15px] font-medium cursor-pointer">Para cocinar</p>
-                                    </li>
-                                    <div class=" flex flex-row items-center gap-4 space-x-4">
-                                        <li class="product-2 flex flex-col items-center">
-                                            <img src="https://m.media-amazon.com/images/I/21W7-lndINL._SY75_.jpg" class="h-[75px] cursor-pointer">
-                                            <p class="text-[15px] font-medium cursor-pointer">Café</p>
-                                        </li>
-                                        <li class="product-3 flex flex-col items-center">
-                                            <img src="https://m.media-amazon.com/images/I/21B-NkA9p-L._SY75_.jpg" class="h-[75px] cursor-pointer">
-                                            <p class="text-[15px] font-medium cursor-pointer">Ollas y sartén</p>
-                                        </li>
-                                        <li class="product-4 flex flex-col items-center">
-                                            <img src="https://m.media-amazon.com/images/I/217GQ1a2QzL._SY75_.jpg" class="h-[75px] cursor-pointer">
-                                            <p class="text-[15px] font-medium cursor-pointer">Hervidores</p>
-                                        </li>
-                                    </div>
-                                </ul>                                                             
-                                <ul class="mt-5 mb-5">
-                                    <li>
-                                        <a href="#" class="text-blue-500 no-underline hover:no-underline">Explora todos los productos en Cocina</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-2">
-                        <div class="card h-100">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4">Novedades en hogar por menos de $50</h5>
-                                <div class=" flex flex-row items-center space-x-4">
-                                    <li class="flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_315_HP_NewArrivals_QuadCard_D_01_1x._SY116_CB555960040_.jpg" class="h-[102px] cursor-pointer">
-                                        <p class="text-[15px] font-medium cursor-pointer">Cocina y comedor</p>
-                                    </li>
-                                    <li class="flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_316_HP_NewArrivals_QuadCard_D_02_1x._SY116_CB555960040_.jpg" class="h-[102px] cursor-pointer">
-                                        <p class="text-[15px] font-medium cursor-pointer">Mejoras del hogar</p>
-                                    </li>
-                                </div>
-                                <div class=" flex flex-row items-center space-x-4">
-                                    <li class="flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_317_HP_NewArrivals_QuadCard_D_03_1x._SY116_CB555960040_.jpg" class="h-[102px] cursor-pointer">
-                                        <p class="text-[15px] font-medium cursor-pointer">Decoración</p>
-                                    </li>
-                                    <li class="flex flex-col items-center">
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_318_HP_NewArrivals_QuadCard_D_04_1x._SY116_CB555960040_.jpg" class="h-[102px] cursor-pointer">
-                                        <p class="text-[15px] font-medium cursor-pointer">Ropa de cama y baño</p>
-                                    </li>
-                                </div>                                                
-                                <ul class="mt-5 mb-5">
-                                    <li>
-                                        <a href="#" class="text-blue-500 no-underline hover:no-underline">Compra lo último desde casa</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/4 pb-2">
-                        <div class="card h-full">
-                            <div class="card-body m-2 flex flex-col items-center justify-between">
-                                <h5 class="text-xl font-bold mb-4 text-center">Zona de envío gratis</h5>
-                                <ul>
-                                    <li>
-                                        <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/FreeShippingZone/Revised/Fuji_Free_Shipping_Zone_Dashboard_crad_1x_EN._SY304_CB562621871_.jpg"
-                                            class="w-full h-[245px] cursor-pointer rounded-lg">
-                                    </li>
-                                </ul>
-                                <ul class="mt-5 mb-5">
-                                    <li><a href="#" class="no-underline text-blue-500 hover:no-underline">Compra ahora</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>         
+        <!-- Botón Anterior -->
+        <button
+          @click="prev(); stopAutoSlide(); autoSlide()"
+          class="absolute left-4 top-20 transform -translate-y-1/2 bg-opacity-50 text-white rounded-full hover:bg-opacity-75 flex items-center justify-center btn-left"
+        >
+          <span class="carousel-control-next-icon">&#10095;</span>
+        </button>
+
+        <!-- Botón Siguiente -->
+        <button
+          @click="next(); stopAutoSlide(); autoSlide()"
+          class="absolute right-4 top-20 transform -translate-y-1/2 bg-opacity-50 text-white rounded-full hover:bg-opacity-75 flex items-center justify-center btn-right"
+        >
+          <span class="carousel-control-next-icon">&#10094;</span>
+        </button>
+      </div>
+      <div class="cards-overlay ">
+        <div class="w-full pl-5 p-5">
+          <div class="flex flex-wrap">
+            <div class="w-full md:w-1/4 pb-5">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 mt-4">
+                    Accessorios para juegos
+                  </h5>
+                  <ul class="card1-content" id="card-one">
+                    <li class="flex flex-col items-center product-1 ">
+                      <img
+                        src="https://m.media-amazon.com/images/I/71nUYWaf0RL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                        class="w-[95px] h-[100px] cursor-pointer"
+                      />
+                      <p class="text-[13px] font-medium cursor-pointer">
+                        Auriculares
+                      </p>
+                    </li>
+                    <li class="flex flex-col items-center product-2 ">
+                      <img
+                        src="https://m.media-amazon.com/images/I/71QDJHG1PqL._AC_UY327_FMwebp_QL65_.jpg"
+                        class="w-[130px] h-[100px] cursor-pointer"
+                      />
+                      <p class="text-[13px] font-medium cursor-pointer">
+                        Teclados
+                      </p>
+                    </li>
+                    <li class="flex flex-col items-center product-3 ">
+                      <img
+                        src="https://m.media-amazon.com/images/I/61AcT0ZuO3L._AC_UY327_FMwebp_QL65_.jpg"
+                        class="w-[90px] h-[120px] cursor-pointer"
+                      />
+                      <p class="text-[13px] font-medium cursor-pointer">
+                        Balance de computadora
+                      </p>
+                    </li>
+                    <li class="flex flex-col items-center product-4 ">
+                      <img
+                        src="https://m.media-amazon.com/images/I/61YuuSZAKfL.__AC_SX300_SY300_QL70_FMwebp_.jpg"
+                        class="w-[90px] h-[120px] cursor-pointer"
+                      />
+                      <p class="text-[13px] font-medium cursor-pointer">
+                        Sillas
+                      </p>
+                    </li>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="no-underline text-blue-500 hover:no-underline"
+                        >Ver más</a
+                      >
+                    </li>
+                  </ul>
                 </div>
-            </div>            
-        </div>
-    </main>
-    <div class="w-full flex flex-row items-center justify-center mb-10 h-[280px] carousel-index-2">
-        <div class="card-carousel flex flex-col items-center justify-center rounded-2xl">
-            <div class="card-body m-2 flex flex-col items-center justify-center">
-                <h5 class="text-xl font-bold mb-4">Relacionado con los artículos que viste</h5>
-                <div x-data="{ current: 0, images: ['https://m.media-amazon.com/images/I/71TKMMyLCAL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/81GrCeuCzxL.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/619ENuJx-IL.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/71F-Wcriq4L.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/61QzVOkMSKL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71DHV9GZSOL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/71H4cGrP+HL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71vEG7asYGL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/714DTyY0BpL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71hpv0wV1cL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/712esGVSg8L.__AC_SX300_SY300_QL70_FMwebp_.jpg'], visible: 5 }" class="relative w-full overflow-hidden flex flex-col items-center justify-center">
-                    <div class="flex items-center justify-between absolute top-1/2 transform -translate-y-1/2 w-full px-4 z-10">
-                        <button @click="current = Math.max(0, current - 1)" class="bg-transparent text-black pr-5 rounded-full">&#10094;</button>
-                        <button @click="current = Math.min(images.length - visible, current + 1)" class="bg-transparent text-black pl-5 rounded-full">&#10095;</button>
-                    </div>  
-                    <div class="flex transition-transform duration-500 ease-in-out" :style="'transform: translateX(-' + (current * (100 / visible)) + '%)'">
-                        <template x-for="img in images" :key="img">
-                            <div class="w-1/5 flex-shrink-0 px-2">
-                                <img :src="img" class="w-[500px] h-[200px]" />
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w-full h-full px-10 py-10">
-        <div class="container mx-auto px-4 py-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              
-              <!-- Mapa -->
-              <div>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5623.621245597952!2d-74.12350315734923!3d4.682685331030879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b19a0a9e02f%3A0xed9fa23d03782bcd!2sAmazon%20Colombia!5e0!3m2!1ses-419!2sco!4v1741355155781!5m2!1ses-419!2sco"
-                  class="w-full h-96 rounded-lg shadow-lg"
-                  frameborder="0" 
-                  allowfullscreen>
-                </iframe>
               </div>
-          
-              <!-- Formulario -->
-              <div>
-                <h2 class="text-3xl font-bold text-black mb-2">Contáctanos!</h2>
-                <p class="text-gray-600 mb-6">Para nosotros es importante saber tu opinión.</p>
-          
-                <form id="contact" action="" method="post" class="space-y-4">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input name="name" type="text" id="name" placeholder="Tu nombre" required
-                      class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    
-                    <input name="email" type="email" id="email" placeholder="Tu Correo" required
-                      class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="w-full md:w-1/4 pb-5">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 text-center mt-4">
+                    Envío GRATUITO a Colombia
+                  </h5>
+                  <ul class="w-full">
+                    <li>
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/1460058_2528408_us_gw_pc_single_category_card_1x_379x304_us-en-379x304._SY304_CB609924804_.jpg"
+                        class="w-full h-auto cursor-pointer rounded-lg"
+                      />
+                    </li>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="no-underline text-blue-500 hover:no-underline"
+                        >Más información</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 pb-5">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 text-center mt-4">
+                    Compra los esenciales para tu hogar
+                  </h5>
+                  <ul class="card3-content">
+                    <li class="product-1 flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/CleaningTool_1x._SY116_CB563137408_.jpg"
+                        class="w-[155px] h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[14px] font-medium cursor-pointer">
+                        Para limpieza
+                      </p>
+                    </li>
+                    <li class="product-2 flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/HomeStorage_1x._SY116_CB563137408_.jpg"
+                        class="w-[155px] h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[14px] font-medium cursor-pointer">
+                        Almacenamiento para el hogar
+                      </p>
+                    </li>
+                    <li class="product-3 flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/HomeDecor_1x._SY116_CB563137408_.jpg"
+                        class="w-[155px] h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[14px] font-medium cursor-pointer">
+                        Decoración del hogar
+                      </p>
+                    </li>
+                    <li class="product-4 flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/BAU2024Sept/Bedding_1x._SY116_CB563137408_.jpg"
+                        class="w-[155px] h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[14px] font-medium cursor-pointer">
+                        Ropa de cama
+                      </p>
+                    </li>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="no-underline text-blue-500 hover:no-underline"
+                        >Descubre más en hogar</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 pb-5">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 text-center mt-4">
+                    Mejora tu juego
+                  </h5>
+                  <ul>
+                    <li>
+                      <img
+                        src="https://img.poweredcache.net/www.teknoblog.com/wp-content/uploads/2020/08/microsoft-xbox-series-x-cikis-tarihi-icin-kasim-ayini-isaret-etti.jpeg?rs=fit&w=1310&h=873&ssl=1"
+                        class="w-full h-[245px] cursor-pointer rounded-lg"
+                      />
+                    </li>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="no-underline text-blue-500 hover:no-underline"
+                        >Compra videojuegos</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 pb-2">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 mt-4">
+                    Año nuevo, nuevos suministros
+                  </h5>
+                  <ul class="w-full">
+                    <li>
+                      <img
+                        src="https://panafargo.com/wp-content/uploads/2022/05/articulos-de-papeleria-mas-vendidos2-1024x681.jpg"
+                        class="w-full h-auto cursor-pointer rounded-lg"
+                      />
+                    </li>
+                  </ul>
+                  <ul>
+                    <li class="mt-5 mb-5">
+                      <a
+                        href="#"
+                        class="text-blue-500 no-underline hover:no-underline"
+                        >Compra productos de oficina y papelería</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 pb-2">
+              <div class="card h-100">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 mt-4">
+                    Principales categorías en Electrodomésticos de cocina
+                  </h5>
+                  <ul class="card5-content">
+                    <li class="product-1 flex flex-col items-center gap-3">
+                      <img
+                        src="https://m.media-amazon.com/images/I/313wAT6Iy2L._SY160_.jpg"
+                        class="w-full h-[130px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[15px] font-medium cursor-pointer">
+                        Para cocinar
+                      </p>
+                    </li>
+                    <div
+                      class="flex flex-row items-center gap-4 space-x-4 mt-3"
+                    >
+                      <li class="product-2 flex flex-col items-center">
+                        <img
+                          src="https://m.media-amazon.com/images/I/21W7-lndINL._SY75_.jpg"
+                          class="h-[75px] cursor-pointer rounded-lg"
+                        />
+                        <p class="text-[15px] font-medium cursor-pointer">
+                          Café
+                        </p>
+                      </li>
+                      <li class="product-3 flex flex-col items-center">
+                        <img
+                          src="https://m.media-amazon.com/images/I/21B-NkA9p-L._SY75_.jpg"
+                          class="h-[75px] cursor-pointer rounded-lg"
+                        />
+                        <p class="text-[15px] font-medium cursor-pointer">
+                          Ollas y sartén
+                        </p>
+                      </li>
+                      <li class="product-4 flex flex-col items-center">
+                        <img
+                          src="https://m.media-amazon.com/images/I/217GQ1a2QzL._SY75_.jpg"
+                          class="h-[75px] cursor-pointer rounded-lg"
+                        />
+                        <p class="text-[15px] font-medium cursor-pointer">
+                          Hervidores
+                        </p>
+                      </li>
+                    </div>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-blue-500 no-underline hover:no-underline"
+                        >Explora todos los productos en Cocina</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/4 pb-2">
+              <div class="card h-100">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 mt-4">
+                    Novedades en hogar por menos de $50
+                  </h5>
+                  <div class="flex flex-row items-center space-x-4">
+                    <li class="flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_315_HP_NewArrivals_QuadCard_D_01_1x._SY116_CB555960040_.jpg"
+                        class="h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[15px] font-medium cursor-pointer">
+                        Cocina y comedor
+                      </p>
+                    </li>
+                    <li class="flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_316_HP_NewArrivals_QuadCard_D_02_1x._SY116_CB555960040_.jpg"
+                        class="h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[15px] font-medium cursor-pointer">
+                        Mejoras del hogar
+                      </p>
+                    </li>
                   </div>
-                  
-                  <textarea name="message" rows="6" id="message" placeholder="Escribe un mensaje" required
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          
-                  <button type="submit" id="form-submit" 
-                    class="w-full bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-3 rounded-md transition-all flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                    Enviar
-                  </button>
-                </form>
+                  <div class="flex flex-row items-center space-x-4">
+                    <li class="flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_317_HP_NewArrivals_QuadCard_D_03_1x._SY116_CB555960040_.jpg"
+                        class="h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[15px] font-medium cursor-pointer">
+                        Decoración
+                      </p>
+                    </li>
+                    <li class="flex flex-col items-center">
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/DiscoTec/2024/HomeLifestyle/HomeSummerFlip/Homepage/QuadCards/Home_Flip_Summer_2024_318_HP_NewArrivals_QuadCard_D_04_1x._SY116_CB555960040_.jpg"
+                        class="h-[102px] cursor-pointer rounded-lg"
+                      />
+                      <p class="text-[15px] font-medium cursor-pointer">
+                        Ropa de cama y baño
+                      </p>
+                    </li>
+                  </div>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="text-blue-500 no-underline hover:no-underline"
+                        >Compra lo último desde casa</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-        </div>          
+            <div class="w-full md:w-1/4 pb-2">
+              <div class="card h-full">
+                <div
+                  class="card-body m-2 flex flex-col items-center justify-between"
+                >
+                  <h5 class="text-xl font-bold mb-4 text-center mt-4">
+                    Zona de envío gratis
+                  </h5>
+                  <ul>
+                    <li>
+                      <img
+                        src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/FreeShippingZone/Revised/Fuji_Free_Shipping_Zone_Dashboard_crad_1x_EN._SY304_CB562621871_.jpg"
+                        class="w-full h-[245px] cursor-pointer rounded-lg"
+                      />
+                    </li>
+                  </ul>
+                  <ul class="mt-5 mb-5">
+                    <li>
+                      <a
+                        href="#"
+                        class="no-underline text-blue-500 hover:no-underline"
+                        >Compra ahora</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-row items-center justify-center mb-10 h-[300px] carousel-index-2 "
+      >
+        <div
+          class="card-carousel flex flex-col items-center justify-center rounded-2xl bg-white"
+        >
+          <div
+            class="card-body m-2 pb-8 flex flex-col items-center justify-center"
+          >
+            <h5 class="text-xl font-bold mb-4 mt-4">
+              Relacionado con los artículos que viste
+            </h5>
+            <div
+              x-data="{ current: 0, images: ['https://m.media-amazon.com/images/I/71TKMMyLCAL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/81GrCeuCzxL.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/619ENuJx-IL.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/71F-Wcriq4L.__AC_SY300_SX300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/61QzVOkMSKL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71DHV9GZSOL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/71H4cGrP+HL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71vEG7asYGL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/714DTyY0BpL._AC_SX466_.jpg', 'https://m.media-amazon.com/images/I/71hpv0wV1cL.__AC_SX300_SY300_QL70_FMwebp_.jpg', 'https://m.media-amazon.com/images/I/712esGVSg8L.__AC_SX300_SY300_QL70_FMwebp_.jpg'], visible: 5 }"
+              class="relative w-full overflow-hidden flex flex-col items-center justify-center"
+            >
+              <div
+                class="flex items-center justify-between absolute top-1/2 transform -translate-y-1/2 w-full px-4 z-10"
+              >
+                <button
+                  @click="current = Math.max(0, current - 1)"
+                  class="bg-transparent text-black pr-5 rounded-full"
+                >
+                  &#10094;
+                </button>
+                <button
+                  @click="current = Math.min(images.length - visible, current + 1)"
+                  class="bg-transparent text-black pl-5 rounded-full"
+                >
+                  &#10095;
+                </button>
+              </div>
+              <div
+                class="flex transition-transform duration-500 ease-in-out"
+                :style="'transform: translateX(-' + (current * (100 / visible)) + '%)'"
+              >
+                <template x-for="img in images" :key="img">
+                  <div class="w-1/5 flex-shrink-0 px-2">
+                    <img :src="img" class="w-[500px] h-[200px]" />
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="contactContent" class="w-full h-full px-10 py-20 contact">
+      <div class="container mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Mapa -->
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5623.621245597952!2d-74.12350315734923!3d4.682685331030879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b19a0a9e02f%3A0xed9fa23d03782bcd!2sAmazon%20Colombia!5e0!3m2!1ses-419!2sco!4v1741355155781!5m2!1ses-419!2sco"
+              class="w-full h-96 rounded-lg shadow-lg"
+              frameborder="0"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <!-- Formulario -->
+          <div class="mt-[-15px]">
+            <h2 class="text-3xl font-bold text-black mb-2" id="h2">Contáctanos!</h2>
+            <p class="text-gray-600 mb-6" id="p1">
+              Para nosotros es importante saber tu opinión.
+            </p>
+            <form
+              id="contact"
+              action="/send_email"
+              method="post"
+              class="space-y-4"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  name="name"
+                  type="text"
+                  id="name"
+                  placeholder="Tu nombre"
+                  required
+                  class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  placeholder="Tu Correo"
+                  required
+                  class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <textarea
+                name="message"
+                rows="6"
+                id="message"
+                placeholder="Escribe un mensaje"
+                required
+                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+
+              <button
+                type="submit"
+                id="form-submit"
+                class="w-full bg-yellow-400 hover:bg-yellow-600 text-black font-bold py-3 rounded-md transition-all flex items-center justify-center gap-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
+                Enviar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="bg-[#232F3E] text-white text-center py-8 w-full text-[12px]">
-        <div class="flex flex-wrap justify-center items-center gap-8 pt-2 mb-[-5px]">
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Condiciones de uso</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Aviso de privacidad</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Aviso de privacidad de Datos de Salud del Consumidor</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Tus opciones de privacidad de los anuncios</a>
-        </div>
-        <p class="pt-2">© 1996 - 2025 Amazon.com, Inc. o sus afiliados</p>
-    </footer>    
-    <script src="{{ url_for('static', filename='js/dropdown.js') }}" defer></script>
-</body>
+      <div
+        class="flex flex-wrap justify-center items-center gap-8 pt-2 mb-[-5px]"
+      >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Condiciones de uso</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Aviso de privacidad</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Aviso de privacidad de Datos de Salud del Consumidor</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Tus opciones de privacidad de los anuncios</a
+        >
+      </div>
+      <p class="pt-2">© 1996 - 2025 Amazon.com, Inc. o sus afiliados</p>
+    </footer>
+    <script
+      src="{{ url_for('static', filename='js/dropdown.js') }}"
+      defer
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/dark-mode-home.js') }}"
+      defer
+    ></script>
+  </body>
 </html>

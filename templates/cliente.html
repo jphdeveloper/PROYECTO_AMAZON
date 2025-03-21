@@ -24,8 +24,26 @@
     <hr class="my-4 border-gray-300">
   </div>
 
-  <!-- Tabla Responsiva -->
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto bg-gray-100">
+    <form method="GET" action="{{ url_for('cliente') }}" class="mb-4 mt-4 flex justify-center">
+      <input 
+          type="text" 
+          name="search" 
+          placeholder="Buscar por ID, Nombre o Categoría..." 
+          value="{{ search }}" 
+          class="px-4 py-2 border border-gray-300 rounded-lg w-80 focus:ring focus:ring-blue-300 outline-none"
+      >
+      <button type="submit" class="flex items-center justify-center ml-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+      </button>
+      {% if search %}
+          <a href="{{ url_for('cliente') }}" class="ml-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
+              Limpiar
+          </a>
+      {% endif %}
+    </form>
     <table class="min-w-full bg-white border border-gray-200 mt-6">
       <thead class="bg-gray-100">
         <tr>
@@ -41,13 +59,13 @@
       <tbody class="divide-y divide-gray-200">
         {% for stu in clientes %}
         <tr class="odd:bg-gray-50">
-          <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ loop.index }}</td>
+          <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ loop.index + (page - 1) * 7 }}</td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ stu.id_cliente }}</td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ stu.nombre_cliente }}</td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ stu.nombre_categoria }}</td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">{{ stu.estado }}</td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-            {{ stu.asesor.empleados.nombre_empleado if stu.asesor else "N/A" }}
+            {{ stu.empleado_asignado }}
           </td>
           <td class="px-4 py-4 whitespace-nowrap text-xs sm:text-sm text-center">
             <a href="/actualizar_cliente/{{ stu.id_cliente }}">
@@ -74,6 +92,23 @@
         </tr>
       </tfoot>
     </table>
+    <div class="flex justify-center mt-4 mb-4 space-x-4">
+      {% if page > 1 %}
+        <a href="{{ url_for('cliente', page=page-1) }}" class="px-4 py-2 text-white bg-gray-600 rounded-lg hover:bg-gray-700">
+          ⬅ Anterior
+        </a>
+      {% endif %}
+    
+      <span class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg">
+        Página {{ page }} de {{ total_pages }}
+      </span>
+    
+      {% if page < total_pages %}
+        <a href="{{ url_for('cliente', page=page+1) }}" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+          Siguiente ➡
+        </a>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock main_content %}

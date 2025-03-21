@@ -1,0 +1,43 @@
+{% extends "base_clientes.html" %}
+
+{% block main_content %}
+<div class="max-w-xl h-full mx-auto p-6  mt-7 mb-8">
+    <div class="container mx-auto p-6">
+        <!-- Breadcrumb -->
+        <nav class="text-sm mb-4">
+            <a href="{{ url_for('perfil_cliente') }}" class="text-blue-600 font-semibold">Información personal</a>
+            <span class="text-gray-700 mr-2 ml-2">
+                > 
+            </span>
+            <a href="{{ url_for('editar_cliente') }}" class="text-blue-600 font-semibold">Datos personales</a>
+            <span class="text-gray-700  mr-2 ml-2">
+                > 
+            </span>
+            <span class="text-gray-700">Nombre elegido</span>
+        </nav>
+        <!-- Título -->
+        <h1 class="text-2xl font-bold mb-4">¿Cómo quieres que te llamemos?</h1>
+        <p class="text-gray-500">
+            Verán el nombre que elijas todas las personas que interactúen contigo en Amazon.
+        </p>
+        <p class="text-gray-500 mt-5">
+            Solo usaremos el nombre que figura en tu documento de identidad si es necesario por motivos legales.
+        </p>
+        <div class="bg-white shadow rounded-lg p-6 mb-3 mt-4">
+            <form method="POST">
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre elegido</label>
+                    <input type="text" name="nombre" id="nombre"
+                           value="{{ usuario.nombre }}"
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>             
+    </div>
+</div>
+{% endblock main_content %}

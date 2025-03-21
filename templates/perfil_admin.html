@@ -1,0 +1,119 @@
+{% extends "base-dashboard.html" %}
+
+{% block main_content %}
+<div class="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-5 mb-5">
+    <div class="flex flex-row items-center gap-5">
+        <div>
+            <a href="#" class="relative w-32 h-32 cursor-pointer">
+                <img src="https://images.icon-icons.com/3868/PNG/512/profile_circle_icon_242774.png" 
+                     alt="Foto de perfil" 
+                     class="w-32 h-32 rounded-full shadow-md">
+                <div class="absolute bottom-1 right-1 bg-white p-1 rounded-full shadow-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2a1 1 0 011 1v1h3.586l1.707 1.707A1 1 0 0119 7v10a1 1 0 01-1 1H6a1 1 0 01-1-1V7a1 1 0 01.293-.707L7 4.414V3a1 1 0 011-1h4zm1 3h-2v1h2V5zm-1 4a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4z"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <div class="flex flex-col items-start">
+            <h2 class="mt-4 text-2xl font-semibold text-gray-800">{{ usuario.nombre }}</h2>
+            <p class="text-gray-900">{{ usuario.correo }}</p>
+            <span class="mt-2 px-2 py-1 bg-blue-500 text-white rounded-md">{{ usuario.rol }}</span>
+        </div>
+    </div>
+</div>
+<div class="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-5 mb-5">
+    <a href="{{ url_for('editar_admin') }}" class="flex flex-row items-center justify-between p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+        <!-- Sección izquierda -->
+        <div class="flex flex-row items-center gap-5">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-500">
+                    <rect x="5" y="6" width="22" height="20" rx="4" />
+                    <circle cx="12" cy="14" r="3" />
+                    <path d="M18 10h3M18 14h3M9 20h14" />
+                </svg>
+            </div>
+            <div class="flex flex-col items-start">
+                <h2 class="text-xl font-semibold text-gray-800">Tu información</h2>
+                <p class="text-gray-500">Nombre elegido y datos para identificarte.</p>
+            </div>
+        </div>
+        <!-- Icono de flecha -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>
+    <a href="{{ url_for('editar_datos') }}" class="flex flex-row items-center justify-between p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+        <div class="flex flex-row items-center gap-5">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
+                <!-- Icono de usuario -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-500">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M6 20v-2a6 6 0 0 1 12 0v2" />
+                </svg>
+            </div>
+            <div class="flex flex-col items-start">
+                <h2 class="text-xl font-semibold text-gray-800">Datos de tu cuenta</h2>
+                <p class="text-gray-500">Datos que representan a la cuenta en Amazon.</p>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>
+    <a href="#" class="flex flex-row items-center justify-between p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+        <div class="flex flex-row items-center gap-5">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
+                <!-- Icono de candado -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-500">
+                    <rect width="18" height="12" x="3" y="10" rx="2" />
+                    <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                </svg>
+            </div>
+            <div class="flex flex-col items-start">
+                <h2 class="text-xl font-semibold text-gray-800">Seguridad</h2>
+                <p class="text-gray-500">Activa la autenticación en 2 pasos.</p>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>
+    <a href="#" class="flex flex-row items-center justify-between p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+        <div class="flex flex-row items-center gap-5">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
+                <!-- Icono de tarjeta -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-500">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <path d="M2 10h20" />
+                </svg>
+            </div>
+            <div class="flex flex-col items-start">
+                <h2 class="text-xl font-semibold text-gray-800">Tarjetas</h2>
+                <p class="text-gray-500">Tarjetas guardadas en tu cuenta.</p>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>
+    <a href="#" class="flex flex-row items-center justify-between p-4 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+        <div class="flex flex-row items-center gap-5">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-lg">
+                <!-- Icono de ubicación -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-blue-500">
+                    <path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z" />
+                    <circle cx="12" cy="11" r="2" />
+                </svg>
+            </div>
+            <div class="flex flex-col items-start">
+                <h2 class="text-xl font-semibold text-gray-800">Direcciones</h2>
+                <p class="text-gray-500">Direcciones guardadas en tu cuenta.</p>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </a>    
+</div>
+{% endblock main_content %}

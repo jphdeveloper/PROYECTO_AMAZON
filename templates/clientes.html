@@ -1,0 +1,68 @@
+{% extends "base_clientes.html" %}
+
+{% block main_content %}
+<div class="container mx-auto mt-8 mb-8 px-4">
+  <!-- Tarjeta de bienvenida -->
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-6">
+    <div class="bg-blue-500 text-white px-6 py-4 text-left flex items-center justify-center font-semibold text-2xl">
+      Bienvenid@
+    </div>
+    <div class="p-6">
+        <div class="flex flex-col items-center gap-4">
+            <!-- Imagen del cliente -->
+            <div class="flex justify-center">
+              <img src="https://images.icon-icons.com/3868/PNG/512/profile_circle_icon_242774.png" 
+              alt="Foto de perfil" 
+              class="w-32 h-32 rounded-full shadow-md">
+            </div>
+      
+            <!-- Información del cliente -->
+            <div class="text-center space-y-2 w-full">
+                <p class="text-gray-700 font-bold text-3xl">{{ cliente.nombre_cliente }}</p>
+                <p class="text-gray-700">{{ cliente.correo }}</p>
+            </div>            
+        </div>
+    </div>      
+  </div>
+  <hr class="my-6 border-gray-300" />
+  <div class="bg-white shadow-lg rounded-lg">
+    <h2 class="border-b border-gray-200 px-6 py-4 text-blue-500 font-semibold">
+      Mis Productos
+    </h2>
+    <div class="p-6">
+      <table class="w-full border border-gray-300 rounded-lg text-left">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-4 py-2">#</th>
+            <th class="px-4 py-2">ID Producto</th>
+            <th class="px-4 py-2">Descripción</th>
+            <th class="px-4 py-2">Categoría</th>
+            <th class="px-4 py-2">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr class="border-t border-gray-200">
+            <td class="px-4 py-2">{{ loop.index }}</td>
+            <td class="px-4 py-2">{{ producto.id_producto }}</td>
+            <td class="px-4 py-2">{{ producto.descripcion }}</td>
+            <td class="px-4 py-2">{{ producto.nombre_categoria }}</td>
+            <td class="px-4 py-2">${{ producto.precio }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr class="border-t border-gray-300 bg-gray-50">
+            <td colspan="5" class="text-center px-4 py-2">
+              {{ productos|length ~ " Productos Disponibles." }}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Importar Alpine.js -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+{% endblock main_content %}

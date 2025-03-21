@@ -6,8 +6,8 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-center h-full">
                 <!-- Imagen -->
-                <div class="w-full md:w-1/2 lg:w-2/5 mb-8 md:mb-0">
-                    <img src="https://assets.aboutamazon.com/dims4/default/8370dc9/2147483647/strip/false/crop/2700x1800+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F69%2Fda%2F24aad61f48f9b60084540b19e532%2Funp-amazon-41374-ltn4-bcc-visit.040.JPG" class="w-full h-auto" alt="Empleado">
+                <div class="w-full md:w-1/2 lg:w-2/5 mb-8 md:mb-0 ">
+                    <img src="https://images.ecestaticos.com/BvS_6BT48glbf3kupu4FWPNxog4=/0x64:2263x1391/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fe7b%2F003%2F9c9%2Fe7b0039c9ac5a3abcb4c7f387c6e5c1d.jpg" class="w-full h-auto rounded-lg" alt="Empleado">
                 </div>
 
                 <!-- Formulario -->
@@ -40,10 +40,13 @@
                             <select id="nombre_categoria" name="nombre_categoria" required
                                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                                 {% for d in categorias %}
-                                <option value="{{ d.nombre_categoria }}">{{ d.nombre_categoria }}</option>
+                                <option value="{{ d.nombre_categoria }}" {% if d.nombre_categoria == empleados.nombre_categoria %}selected{% endif %}>
+                                    {{ d.nombre_categoria }}
+                                </option>
                                 {% endfor %}
                             </select>
                         </div>
+
 
                         <!-- Botón de envío -->
                         <div class="text-center mt-6">

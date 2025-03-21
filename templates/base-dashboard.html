@@ -1,93 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
     <header class="header-dashboard">
-        <div class="flex items-center space-x-4 pb-2">
-            <a href="{{ url_for('dashboard') }}" class="cursor-pointer mt-4">
-                <img alt="Logo" src="{{ url_for('static', filename='img/logo.png') }}" class="h-12">
-            </a>
-        </div>
-        <nav class="hidden md:block">
-            <ul class="flex text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
-                <li><a href="{{ url_for('index')}}" class="hover:text-gray-300">Inicio</a></li>
-                <li><a href="{{ url_for('nosotros')}}" class="hover:text-gray-300">Nosotros</a></li>
-                <li><a href="#" class="hover:text-gray-300">Shop</a></li>
-                <li><a href="{{ url_for('dashboard')}}" class="hover:text-gray-300">Panel Administrativo</a></li>
-                <li>
-                    <a href="#" id="mi-cuenta" class="hover:text-gray-300 ">
-                        <div class="flex flex-row items-center justify-center">
-                            Mi Cuenta
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-1 mt-1">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </div>
-                    </a>
-                    <!-- Menú flotante -->
-                    <div id="menu-flotante" class="hidden absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-48 right-7">
-                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a>
-                        <a href="{{ url_for('index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Cerrar Sesión</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="relative block md:hidden">
-            <button id="menuToggle" class="text-white focus:outline-none">
-                <svg class="w-10 h-10 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2z" clip-rule="evenodd"/>
+      <div class="flex items-center space-x-4 pb-2">
+        <a href="{{ url_for('dashboard') }}" class="cursor-pointer mt-4">
+          <img
+            alt="Logo"
+            src="{{ url_for('static', filename='img/logo.png') }}"
+            class="h-12"
+          />
+        </a>
+      </div>
+      <nav class="hidden md:block">
+        <ul
+          class="flex text-base [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+          <li><a href="{{ url_for('dashboard') }}" class="hover:text-gray-300">Inicio</a></li>
+          <li>
+            <a href="{{ url_for('nosotros')}}" class="hover:text-gray-300"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('dashboard')}}" class="hover:text-gray-300"
+              >Panel Administrativo</a
+            >
+          </li>
+          <li>
+            <a href="#" id="mi-cuenta" class="hover:text-gray-300">
+              <div class="flex flex-row items-center justify-center">
+                Hola, {{ nombre_usuario }}
+                <!-- Ahora siempre mostrará "Hola, [nombre]" -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 ml-1 mt-1"
+                >
+                  <path d="M6 9l6 6 6-6" />
                 </svg>
-            </button>            
-            <div id="menuDropdown" class="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-lg hidden z-50">
-                <ul class="flex flex-col space-y-2 py-2">
-                    <li><a href="{{ url_for('dashboard') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Inicio</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Nosotros</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Shop</a></li>
-                    <li><a href="{{ url_for('dashboard')}}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Panel Administrativo</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Perfil</a></li>
-                    <li><a href="{{ url_for('index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Cerrar Sesión</a></li>
-                </ul>
+              </div>
+            </a>
+            <!-- Menú flotante -->
+            <div
+              id="menu-flotante"
+              class="hidden absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-48 right-7"
+            >
+              <a
+                href="{{ url_for('perfil_admin') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Perfil</a
+              >
+              <a
+                href="{{ url_for('logout') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Cerrar Sesión</a
+              >
             </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="relative block md:hidden">
+        <button id="menuToggle" class="text-white focus:outline-none">
+          <svg class="w-10 h-10 mt-1" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2zm0 4h14a1 1 0 110 2H3a1 1 0 110-2z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          id="menuDropdown"
+          class="absolute right-0 top-full mt-2 w-48 bg-white shadow-lg rounded-lg hidden z-50"
+        >
+          <ul class="flex flex-col space-y-2 py-2">
+            <li>
+              <a
+                href="{{ url_for('dashboard') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Nosotros</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Shop</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('dashboard')}}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Panel Administrativo</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Perfil</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('index') }}"
+                class="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >Cerrar Sesión</a
+              >
+            </li>
+          </ul>
         </div>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    {% if category == 'success' %}
-                        <div class="fixed top-4 right-4 p-4 text-green-700 bg-green-100 border border-green-300 rounded slide-in-right" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
-                            {{ message }}
-                        </div>
-                    {% elif category == 'error' %}
-                        <div class="fixed top-4 right-4 p-4 text-red-700 bg-red-100 border border-red-300 rounded slide-in-right" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
-                            {{ message }}
-                        </div>
-                    {% else %}
-                        <div class="fixed top-4 right-4 p-4 text-blue-700 bg-blue-100 border border-blue-300 rounded slide-in-right" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 3000)" x-show="show" x-transition:leave="slide-out-right">
-                            {{ message }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div
+        x-data="{ show: true }"
+        x-init="setTimeout(() => { show = false }, 3000)"
+        x-show="show"
+        class="flash-message {% if category == 'success' %}flash-success{% elif category == 'error' %}flash-error{% else %}flash-info{% endif %} slide-in-right"
+        x-transition:leave="slide-out-right"
+      >
+        <!-- Ícono dinámico -->
+        <span class="flash-icon">
+          {% if category == 'success' %} ✅ {% elif category == 'error' %} ❌ {%
+          else %} ℹ️ {% endif %}
+        </span>
+
+        <!-- Mensaje -->
+        <span>{{ message }}</span>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
     </header>
-    <main>
-        {% block main_content %}{% endblock main_content %}
-    </main>
+    <main>{% block main_content %}{% endblock main_content %}</main>
     <footer class="bg-[#232F3E] text-white text-center py-8 w-full text-[12px]">
-        <div class="flex flex-wrap justify-center items-center gap-8 pt-2 mb-[-5px]">
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Condiciones de uso</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Aviso de privacidad</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Aviso de privacidad de Datos de Salud del Consumidor</a>
-            <a href="#" class="text-white text-[13px] hover:text-gray-300">Tus opciones de privacidad de los anuncios</a>
-        </div>
-        <p class="pt-2">© 1996 - 2025 Amazon.com, Inc. o sus afiliados</p>
+      <div
+        class="flex flex-wrap justify-center items-center gap-8 pt-2 mb-[-5px]"
+      >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Condiciones de uso</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Aviso de privacidad</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Aviso de privacidad de Datos de Salud del Consumidor</a
+        >
+        <a href="#" class="text-white text-[13px] hover:text-gray-300"
+          >Tus opciones de privacidad de los anuncios</a
+        >
+      </div>
+      <p class="pt-2">© 1996 - 2025 Amazon.com, Inc. o sus afiliados</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="{{ url_for('static', filename='js/dropdown.js') }}" defer></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/dropdown.js') }}"
+      defer
+    ></script>
+  </body>
 </html>

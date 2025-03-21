@@ -1,7 +1,7 @@
 {% extends "dept_base.html" %} 
 
-{% block title %}Automotriz{% endblock title %}
-{% block deptname%}Automotriz{% endblock deptname%}
+{% block title %}Software{% endblock title %}
+{% block deptname%}Software{% endblock deptname%} 
 
 {% block content %}
 <div class="container mb-10 mt-5 pt-5 px-4 bg-white shadow-lg rounded-lg">
@@ -31,7 +31,7 @@
     <!-- Buscador de Productos -->
     <form
       method="GET"
-      action="{{ url_for('automotriz') }}"
+      action="{{ url_for('software') }}"
       class="mb-4 mt-4 flex justify-center"
     >
       <input
@@ -59,7 +59,7 @@
       </button>
       {% if search_productos %}
       <a
-        href="{{ url_for('automotriz') }}"
+        href="{{ url_for('software') }}"
         class="ml-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
         >Limpiar</a
       >
@@ -166,7 +166,7 @@
     <!-- Buscador -->
     <form
       method="GET"
-      action="{{ url_for('automotriz') }}"
+      action="{{ url_for('software') }}"
       class="mb-4 mt-4 flex justify-center"
     >
       <input
@@ -194,7 +194,7 @@
       </button>
       {% if search_empleados %}
       <a
-        href="{{ url_for('automotriz') }}"
+        href="{{ url_for('software') }}"
         class="ml-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
         >Limpiar</a
       >
@@ -271,7 +271,7 @@
     <div class="flex justify-center mt-4 mb-4 space-x-4">
       {% if page > 1 %}
       <a
-        href="{{ url_for('automotriz', page=page-1) }}"
+        href="{{ url_for('software', page=page-1) }}"
         class="px-4 py-2 text-white bg-gray-600 rounded-lg hover:bg-gray-700"
         >⬅ Anterior</a
       >
@@ -283,7 +283,7 @@
 
       {% if page < total_pages %}
       <a
-        href="{{ url_for('automotriz', page=page+1) }}"
+        href="{{ url_for('software', page=page+1) }}"
         class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
         >Siguiente ➡</a
       >
@@ -300,7 +300,7 @@
     <!-- Buscador de Clientes -->
     <form
       method="GET"
-      action="{{ url_for('automotriz') }}"
+      action="{{ url_for('software') }}"
       class="mb-4 mt-4 flex justify-center"
     >
       <input
@@ -328,7 +328,7 @@
       </button>
       {% if search_clientes %}
       <a
-        href="{{ url_for('automotriz') }}"
+        href="{{ url_for('software') }}"
         class="ml-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
         >Limpiar</a
       >
@@ -384,7 +384,7 @@
     <div class="flex justify-center mt-4 mb-4 space-x-4">
       {% if page > 1 %}
       <a
-        href="{{ url_for('automotriz', page=page-1) }}"
+        href="{{ url_for('software', page=page-1) }}"
         class="px-4 py-2 text-white bg-gray-600 rounded-lg hover:bg-gray-700"
         >⬅ Anterior</a
       >
@@ -396,7 +396,7 @@
 
       {% if page < total_pages %}
       <a
-        href="{{ url_for('automotriz', page=page+1) }}"
+        href="{{ url_for('software', page=page+1) }}"
         class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
         >Siguiente ➡</a
       >

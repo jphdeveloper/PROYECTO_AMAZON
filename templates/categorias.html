@@ -1,8 +1,10 @@
 {% extends "base-dashboard.html" %}
 
+{% block title %}Categorias{% endblock title %}
+
 {% block main_content %}
-<div class="container mx-auto mt-10 mb-10 p-8 w-ful h-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto lg:grid-rows-8 gap-8">
+<div class="container mx-auto mt-10 mb-10 px-20 py-7 w-ful h-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto lg:grid-rows-8 gap-10">
         <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
             <div class="w-full flex justify-center">
                 <img src="https://artesaniasdecolombia.com.co/Documentos/Contenido/40545_feria-arte-artesania-diseno-artesanias-colombia-2022-g3.jpeg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
@@ -43,7 +45,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Bebé</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('bebes') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -54,7 +56,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Belleza y cuidado personal</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('cuidado_personal') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -65,7 +67,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Cine y TV</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('cine') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -76,7 +78,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Deportes y actividades al aire libre</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('deportes') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -87,7 +89,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Electrónicos</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('electronicos') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -98,7 +100,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Equipaje</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('equipaje') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -109,7 +111,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Herramientas y mejoramiento del hogar</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('herramientas') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -120,7 +122,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Hogar y cocina</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('cocina') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -131,7 +133,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Industrial y científico</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('industrial') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -142,7 +144,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Insumos para mascotas</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('mascotas') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -153,7 +155,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Juguetes y juegos</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('juguetes') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -164,51 +166,51 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Libros</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('libros') }}">Ver más</a>
                 </button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
             <div class="w-full flex justify-center">
-                <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/2fc6614/2147483647/strip/true/crop/1200x676+0+12/resize/1000x563!/quality/90/?url=https%3A%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2F38%2F19%2Fb283b8674707bc143ce96d5a0daa%2Ftendencias-de-moda-para-nina-primavera-2024-boho-jeans-chaleco-gorra.jpeg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+                <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/2fc6614/2147483647/strip/true/crop/1200x676+0+12/resize/1000x563!/quality/90/?url=https%3A%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2F38%2F19%2Fb283b8674707bc143ce96d5a0daa%2Ftendencias-de-moda-para-nina-primavera-2024-boho-jeans-chaleco-gorra.jpeg" alt="Imagen" class="w-full h-[230px] object-cover object-top rounded-t-lg mb-4">
             </div>
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Moda de niñas</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('moda_niñas') }}">Ver más</a>
                 </button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
             <div class="w-full flex justify-center">
-                <img src="https://ropaymodainfantil.es/img/cms/fotos%20portada%202025/BABY%20BOY.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+                <img src="https://ropaymodainfantil.es/img/cms/fotos%20portada%202025/BABY%20BOY.jpg" alt="Imagen" class="w-full h-[230px] object-cover object-top rounded-t-lg mb-4">
             </div>
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Moda de niños</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('moda_niños') }}">Ver más</a>
                 </button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
             <div class="w-full flex justify-center">
-                <img src="https://montescojeans.com.ar/wp-content/uploads/que-ropa-usar-para-el-calor-hombre.webp" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+                <img src="https://montescojeans.com.ar/wp-content/uploads/que-ropa-usar-para-el-calor-hombre.webp" alt="Imagen" class="w-full h-[230px] object-cover object-top rounded-t-lg mb-4">
             </div>
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Moda para Hombre</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('moda_hombre') }}">Ver más</a>
                 </button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md flex flex-col items-center text-center">
             <div class="w-full flex justify-center">
-                <img src="https://sopotey.com/blog/wp-content/uploads/2024/02/ropa-de-mujer-elegante-y-moderna.jpg" alt="Imagen" class="w-full h-[230px] object-cover rounded-t-lg mb-4">
+                <img src="https://sopotey.com/blog/wp-content/uploads/2024/02/ropa-de-mujer-elegante-y-moderna.jpg" alt="Imagen" class="w-full h-[230px] object-cover object-top rounded-t-lg mb-4">
             </div>
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Moda para Mujer</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('moda_mujer') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -219,7 +221,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Música MP3</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('musica_mp3') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -230,7 +232,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Música, CD y vinilos</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('musica_cd') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -241,7 +243,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Ofertas</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('ofertas') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -252,7 +254,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Prime Video</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('primevideo') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -263,7 +265,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Salud y productos para el hogar</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('salud') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -274,7 +276,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Software</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('software') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -285,7 +287,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Tienda Kindle</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('kindle') }}">Ver más</a>
                 </button>
             </div>
         </div>
@@ -296,7 +298,7 @@
             <div class="flex flex-col gap-2 mb-5 items-center justify-center">
                 <h2 class="text-xl font-bold mb-2">Videojuegos</h2>
                 <button class="bg-blue-900 hover:bg-blue-950 text-white font-semibold p-2 rounded-lg w-[100px]">
-                    <a href="#">Ver más</a>
+                    <a href="{{ url_for('videojuegos') }}">Ver más</a>
                 </button>
             </div>
         </div>

@@ -4,7 +4,11 @@
 
 @layer components {
     .header-custom {
-        @apply bg-[#131921] flex items-center justify-center px-10 py-3 text-white p-4 gap-4;
+        @apply bg-[#131921] flex items-center justify-center px-10 py-2 text-white gap-4;
+    }
+
+    .header-custom-2 {
+        @apply bg-[#232F3E] flex flex-row items-center justify-start py-3 gap-3;
     }
 
     .header-dashboard {
@@ -69,7 +73,7 @@
             "product-3 product-4";
     }
 }
-
+  
 body {
     @apply font-sans m-0 p-0 bg-[#E3E6E6] flex flex-col w-full h-full;
 }
@@ -82,6 +86,10 @@ main.with-overlay {
     position: relative;
 }
 
+.contact.with-overlay {
+    position: relative;
+}
+
 main.with-overlay::after {
     content: "";
     position: absolute;
@@ -89,8 +97,20 @@ main.with-overlay::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    pointer-events: none;
+}
+
+.contact.with-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
     pointer-events: none;
 }
 
@@ -119,18 +139,22 @@ main.with-overlay::after {
 @keyframes slideInRight {
     from {
         transform: translateX(100%);
+        opacity: 0;
     }
     to {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @keyframes slideOutRight {
     from {
         transform: translateX(0);
+        opacity: 1;
     }
     to {
         transform: translateX(100%);
+        opacity: 0;
     }
 }
 
@@ -139,17 +163,48 @@ main.with-overlay::after {
 }
 
 .slide-out-right {
-    animation: slideOutRight 0.5s ease-out forwards;
+    animation: slideOutRight 0.5s ease-in-out forwards;
 }
 
 @keyframes fade {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
-  }
-  
-  .animate-fade {
+}
+
+.animate-fade {
     animation: fade 1.5s infinite;
-  }
+}
+
+.flash-message {
+    @apply fixed top-4 right-4 p-4 rounded-xl z-[1000] shadow-2xl flex items-center gap-3
+           transition-all duration-500 ease-in-out font-semibold text-lg border-2 
+           backdrop-blur-md;
+}
+
+.flash-success {
+    @apply text-white bg-green-500 border-green-700 shadow-green-500/70 
+           hover:shadow-green-400 transition hover:scale-105;
+}
+
+.flash-error {
+    @apply text-white bg-red-500 border-red-700 shadow-red-500/70 
+           hover:shadow-red-400 transition hover:scale-105;
+}
+
+.flash-info {
+    @apply text-white bg-blue-500 border-blue-700 shadow-blue-500/70 
+           hover:shadow-blue-400 transition hover:scale-105;
+}
+
+.flash-icon {
+    @apply text-2xl animate-fade;
+}
+
+
+
+.dark .cards-overlay {
+    @apply bg-[linear-gradient(to_bottom,rgba(17,24,39,0)_0%,rgba(17,24,39,1)_30%,rgba(17,24,39,1)_100%)]
+}
 
 @media (max-width: 768px) {
     .header-custom {

@@ -11,42 +11,58 @@
                          class="w-full md:max-w-xl rounded-lg shadow-lg" 
                          alt="image">
                 </div>                
+
                 <!-- Formulario -->
                 <div class="w-full md:w-1/2 p-6">
                     <form action="/actualizar_cliente/{{ clientes.id_cliente }}" method="post" class="bg-white p-6 rounded-lg shadow-lg">
                         <div class="text-center mb-6">
                             <p class="text-2xl font-bold text-gray-800">Actualizar Cliente</p>
                         </div>
-  
+
                         <!-- Nombre Cliente -->
                         <div class="mb-4">
                             <label for="nombre_cliente" class="block text-gray-700 font-semibold mb-2">Nombres y Apellidos</label>
-                            <input type="text" id="nombre_cliente" name="nombre_cliente" required value="{{ clientes.nombre_cliente }}" 
+                            <input type="text" id="nombre_cliente" name="nombre_cliente" required 
+                                value="{{ clientes.nombre_cliente }}" 
                                 class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
                         </div>
-  
+
+                        <!-- Correo -->
+                        <div class="mb-4">
+                            <label for="correo" class="block text-gray-700 font-semibold mb-2">Correo Electrónico</label>
+                            <input type="email" id="correo" name="correo" required 
+                                value="{{ clientes.correo }}" 
+                                class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                        </div>
+
                         <!-- Estado -->
                         <div class="mb-4">
                             <label for="estado" class="block text-gray-700 font-semibold mb-2">Estado</label>
-                                <select id="estado" name="estado" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
-                                    <option value="Activo">Activo</option>
-                                    <option value="Inactivo">Inactivo</option>
-                                </select>
+                            <select id="estado" name="estado" required 
+                                class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                                <option value="Activo" {% if clientes.estado == 'Activo' %}selected{% endif %}>Activo</option>
+                                <option value="Inactivo" {% if clientes.estado == 'Inactivo' %}selected{% endif %}>Inactivo</option>
+                            </select>
                         </div>
-  
+
                         <!-- Categoría -->
                         <div class="mb-4">
                             <label for="nombre_categoria" class="block text-gray-700 font-semibold mb-2">Seleccione Categoría</label>
-                                <select id="nombre_categoria" name="nombre_categoria" required class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
+                            <select id="nombre_categoria" name="nombre_categoria" required 
+                                class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300">
                                 {% for d in categorias %}
-                                <option value="{{ d.nombre_categoria }}">{{ d.nombre_categoria }}</option>
+                                <option value="{{ d.nombre_categoria }}" 
+                                    {% if d.nombre_categoria == clientes.nombre_categoria %}selected{% endif %}>
+                                    {{ d.nombre_categoria }}
+                                </option>
                                 {% endfor %}
                             </select>
                         </div>
-  
+
                         <!-- Botón -->
                         <div class="text-center mt-6">
-                            <button type="submit" class="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300">
+                            <button type="submit" 
+                                class="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition duration-300">
                                 Actualizar
                             </button>
                         </div>
@@ -55,5 +71,6 @@
             </div>
         </div>
     </section>
-</div>  
+</div>
+  
 {% endblock main_content %}
