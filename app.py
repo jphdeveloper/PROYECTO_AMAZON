@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='static')
 app.secret_key = '97110c78ae51a45af397be6534caef90ebb9b1dcb3380af008f90b23a5d1616bf19bc29098105da20fe'
 
 # Configuración de SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://Root123:Root1102807012.@localhost/db_amazon'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://:@localhost/db_amazon'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
